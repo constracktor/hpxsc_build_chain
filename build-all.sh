@@ -9,7 +9,8 @@ print_usage_abort ()
 SYNOPSIS
     ${0} {Release|RelWithDebInfo|Debug}
     {with-gcc|with-clang|with-CC|with-CC-clang}
-    {with-cuda|without-cuda}
+    {with-mkl|without-mkl}
+    {with-cuda|with-kokkos|without-gpu}
 DESCRIPTION
     Download, configure, build, and install HPXSc and its dependencies.
 EOF
@@ -64,7 +65,6 @@ else
     print_usage_abort
 fi
 
-
 # Determine compiler
 if [[ "$2" == "with-gcc" ]]; then
     export HPX_USE_CC_COMPILER=OFF
@@ -97,6 +97,7 @@ export HPX_COMPILER_OPTION="$2"
 ################################################################################
 # Script directory
 export HPXSC_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" >/dev/null 2>&1 && pwd )"
+cd hpxsc_build_chain
 # Set Build Configuration Parameters
 source config.sh
 

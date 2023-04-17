@@ -1,7 +1,7 @@
-${HPXSC_ROOT:?} ${BUILD_TYPE:?}
+#${HPXSC_ROOT:?} ${BUILD_TYPE:?}
 
-export INSTALL_ROOT=${HPXSC_ROOT}/build
-export SOURCE_ROOT=${HPXSC_ROOT}/src
+export INSTALL_ROOT=${HPXSC_ROOT}/../build
+export SOURCE_ROOT=${HPXSC_ROOT}/../src
 
 ################################################################################
 # Package Configuration
