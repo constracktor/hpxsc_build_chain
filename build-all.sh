@@ -56,7 +56,7 @@ elif [[ "$4" == "with-cuda" ]]; then
     export HPX_WITH_CUDA=ON
     export HPX_WITH_KOKKOS=OFF
     echo "GPU Support: CUDA Enabled"
-elif [[ "$4" == "with-cuda" ]]; then
+elif [[ "$4" == "with-kokkos" ]]; then
     export HPX_WITH_CUDA=ON
     export HPX_WITH_KOKKOS=ON
     echo "GPU Support: Kokkos Enabled"
