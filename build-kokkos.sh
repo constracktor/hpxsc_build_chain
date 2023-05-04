@@ -10,7 +10,7 @@ DIR_INSTALL=${INSTALL_ROOT}/kokkos
 cd "${SOURCE_ROOT}"
 if [ ! -d kokkos ] ; then
     git clone https://github.com/kokkos/kokkos.git
-    cd kokkos && git checkout develop 
+    cd kokkos && git checkout 715a6ffd5 #develop 
     cd ..
 fi
 mkdir -p "${DIR_BUILD}"

@@ -23,7 +23,6 @@ export CLANG_VERSION=release/12.x
 export MKL_VERSION=2023.0.0
 
 # Boost
-echo ${BUILD_TYPE}
 export BOOST_VERSION=1.75.0
 export BOOST_ROOT=${INSTALL_ROOT}/boost
 export BOOST_BUILD_TYPE=$(echo ${BUILD_TYPE/%WithDebInfo/ease} | tr '[:upper:]' '[:lower:]')
@@ -34,8 +33,17 @@ export JEMALLOC_VERSION=5.2.1
 # hwloc
 export HWLOC_VERSION=1.11.12
 
+# Libfabric
+export LIBFABRIC_VERSION=1.9.0
+
 # CUDA
 export CUDA_VERSION=11.0.3
+#export CUDA_SM=sm_80
+#export KOKKOS_CONFIG=" -DKokkos_ARCH_HSW=ON  -DKokkos_ARCH_AMPERE80=ON "
+
+# Kokkos
+#export KOKKOS_VERSION=d1e00352fd6262fd8d08225eb7086793432db35f
+#export HPX_KOKKOS_VERSION=0.2.0
 
 # HPX
 export HPX_VERSION=1.8.1
