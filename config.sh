@@ -33,12 +33,10 @@ export JEMALLOC_VERSION=5.2.1
 # hwloc
 export HWLOC_VERSION=1.11.12
 
-# Libfabric
-export LIBFABRIC_VERSION=1.9.0
 
 # CUDA
 export CUDA_VERSION=11.0.3
-#export CUDA_SM=sm_80
+export CUDA_SM=sm_80
 #export KOKKOS_CONFIG=" -DKokkos_ARCH_HSW=ON  -DKokkos_ARCH_AMPERE80=ON "
 
 # Kokkos

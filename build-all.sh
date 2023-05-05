@@ -11,7 +11,7 @@ SYNOPSIS
     {with-gcc|with-clang|with-CC|with-CC-clang}
     {with-mkl|without-mkl}
     {with-cuda|with-kokkos|without-gpu}
-    {with-libfabric|without-parcel}
+    {with-mpi|without-parcel}
 DESCRIPTION
     Download, configure, build, and install HPXSc and its dependencies.
 EOF
@@ -67,15 +67,13 @@ else
 fi
 
 if [[ "$5" == "without-parcel" ]]; then
-    export HPX_WITH_LIBFABRIC=OFF
     export HPX_WITH_PARCEL=OFF
     echo "Distributed Support: Parcelport Disabled"
-elif [[ "$5" == "with-libfabric" ]]; then
-    export HPX_WITH_LIBFABRIC=ON
+elif [[ "$5" == "with-mpi" ]]; then
     export HPX_WITH_PARCEL=ON
     echo "Distributed Support: Parcelport Enabled"
 else
-    echo 'Distributed support must be specified and has to be "with-libfabric" or "without-parcel"' >&2
+    echo 'Distributed support must be specified and has to be "with-mpi" or "without-parcel"' >&2
     print_usage_abort
 fi
 
@@ -160,11 +158,6 @@ if [[ "${HPX_WITH_CUDA}" == "ON" ]]; then
 
     echo "Building CPPuddle"
     ./build-cppuddle.sh
-fi
-
-if [[ "${HPX_WITH_PARCEL}" == "ON" ]]; then
-    echo "Building LIBFABRIC"
-    ./build-libfabric.sh
 fi
 
 echo "Building Boost"
