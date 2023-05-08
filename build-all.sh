@@ -147,6 +147,16 @@ fi
 ################################################################################
 # Dependencies
 ################################################################################
+if [[ ${HPX_WITH_PARCEL} == ON  ]]; then   
+    echo "Building Openmpi"
+    ./build-openmpi.sh
+
+   if [[ -d ${INSTALL_ROOT}/openmpi  ]]; then
+	source openmpi-config.sh
+   fi
+fi
+
+
 if [[ "${HPX_WITH_MKL}" == "ON" ]]; then
     echo "Building MKL"
     ./build-mkl.sh
@@ -159,6 +169,7 @@ if [[ "${HPX_WITH_CUDA}" == "ON" ]]; then
     echo "Building CPPuddle"
     ./build-cppuddle.sh
 fi
+
 
 echo "Building Boost"
 ./build-boost.sh

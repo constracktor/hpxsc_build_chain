@@ -19,6 +19,9 @@ export CLANG_VERSION=release/12.x
 # specific version of system clang
 #export CC_CLANG_VERSION=-10
 
+# OpenMPI
+export OPENMPI_VERSION=4.0.0
+
 # MKL version 
 export MKL_VERSION=2023.0.0
 
@@ -36,10 +39,10 @@ export HWLOC_VERSION=1.11.12
 
 # CUDA
 export CUDA_VERSION=11.0.3
-export CUDA_SM=sm_80
+#export CUDA_SM=sm_80
 #export KOKKOS_CONFIG=" -DKokkos_ARCH_HSW=ON  -DKokkos_ARCH_AMPERE80=ON "
 
-# Kokkos
+# Kokkos TBD.
 #export KOKKOS_VERSION=d1e00352fd6262fd8d08225eb7086793432db35f
 #export HPX_KOKKOS_VERSION=0.2.0
 
