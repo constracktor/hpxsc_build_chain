@@ -20,7 +20,7 @@ export CLANG_VERSION=release/12.x
 #export CC_CLANG_VERSION=-10
 
 # OpenMPI
-export OPENMPI_VERSION=4.0.0
+export OPENMPI_VERSION=4.1.5
 
 # MKL version 
 export MKL_VERSION=2023.0.0
@@ -34,7 +34,7 @@ export BOOST_BUILD_TYPE=$(echo ${BUILD_TYPE/%WithDebInfo/ease} | tr '[:upper:]' 
 export JEMALLOC_VERSION=5.2.1
 
 # hwloc
-export HWLOC_VERSION=1.11.12
+export HWLOC_VERSION=2.9.1
 
 
 # CUDA

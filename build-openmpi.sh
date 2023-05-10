@@ -27,7 +27,7 @@ fi
     mkdir -p ${DIR_BUILD}
     cd ${DIR_BUILD}
 
-    ${DIR_SRC}/configure --prefix=${DIR_INSTALL} 
+    ${DIR_SRC}/configure --prefix=${DIR_INSTALL} --disable-mpi-fortran --with-hwloc=${INSTALL_ROOT}/hwloc/
     make -j${PARALLEL_BUILD}
     make install
 )
