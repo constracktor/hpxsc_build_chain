@@ -21,6 +21,6 @@ cd "${DIR_BUILD}"
 ${CMAKE_COMMAND} -DCMAKE_BUILD_TYPE=Release -H${DIR_SRC} \
     -DCMAKE_INSTALL_PREFIX=${DIR_INSTALL}/hpx-kokkos \
     -DCMAKE_CXX_COMPILER=${CXX} \
-    -DHPX_DIR="${HPXSC_ROOT}/build/hpx/build/lib/cmake/HPX" \
-    -DKokkos_DIR="${HPXSC_ROOT}/build/kokkos/kokkos/lib/cmake/Kokkos"
+    -DHPX_DIR="${INSTALL_ROOT}/hpx/build/lib/cmake/HPX" \
+    -DKokkos_DIR="${INSTALL_ROOT}/kokkos/kokkos/lib/cmake/Kokkos"
 make -j${PARALLEL_BUILD} install

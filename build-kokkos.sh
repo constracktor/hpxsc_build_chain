@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} ${CMAKE_COMMAND:?}
+: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} ${CMAKE_COMMAND:?} ${CUDA_ARCH}
 
 DIR_SRC=${SOURCE_ROOT}/kokkos
 DIR_BUILD=${INSTALL_ROOT}/kokkos/build
@@ -18,10 +18,10 @@ cd "${DIR_BUILD}"
 ${CMAKE_COMMAND} \
     -DCMAKE_BUILD_TYPE=Release \
     -H${DIR_SRC} \
-    -DCMAKE_INSTALL_PREFIX=$DIR_INSTALL/kokkos \
+    -DCMAKE_INSTALL_PREFIX=${DIR_INSTALL}/kokkos \
     -DKokkos_ENABLE_SERIAL=ON \
     -DKokkos_ENABLE_CUDA=ON \
-    -DKokkos_ARCH_AMPERE80=ON \
+    -DKokkos_ARCH_${CUDA_ARCH}=ON \
     -DKokkos_ENABLE_HPX=ON \
     -DHPX_DIR="${INSTALL_ROOT}/hpx/build/lib/cmake/HPX"
 make -j${PARALLEL_BUILD} install
