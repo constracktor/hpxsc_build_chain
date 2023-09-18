@@ -12,7 +12,7 @@ DIR_SRC=${SOURCE_ROOT}/hpx
 DIR_BUILD=${INSTALL_ROOT}/hpx/build
 DIR_INSTALL=${INSTALL_ROOT}/hpx
 
-DOWNLOAD_URL="https://github.com/stellar-group/hpx/archive/${HPX_VERSION}.tar.gz"
+DOWNLOAD_URL="https://github.com/STEllAR-GROUP/hpx/archive/refs/tags/v${HPX_VERSION}.tar.gz"
 
 if [[ ! -d ${DIR_SRC} ]]; then
     (
@@ -49,11 +49,13 @@ ${CMAKE_COMMAND} \
     -DHPX_WITH_EXAMPLES=OFF \
     -DHPX_WITH_TESTS=OFF \
     -DHPX_WITH_APEX=ON \
+    -DHPX_WITH_APEX_TAG=develop \
     -DAPEX_WITH_MPI=OFF \
     -DAPEX_WITH_CUDA=${HPX_WITH_CUDA} \
     -DHPX_WITH_CUDA=${HPX_WITH_CUDA} \
     -DHPX_WITH_GPUBLAS=${HPX_WITH_CUDA}
     #-DHPX_WITH_CUDA_ARCH=${CUDA_SM} \
+# Note: APEX with MPI only for single installations
 
 ${CMAKE_COMMAND} --build ${DIR_BUILD} -- -j${PARALLEL_BUILD} VERBOSE=1
 ${CMAKE_COMMAND} --build ${DIR_BUILD} --target install

@@ -48,7 +48,7 @@ export CUDA_ARCH=VOLTA70
 #export HPX_KOKKOS_VERSION=0.2.0
 
 # HPX
-export HPX_VERSION=1.8.1
+export HPX_VERSION=1.9.1
 
 # Max number of parallel jobs
 export PARALLEL_BUILD=$(grep -c ^processor /proc/cpuinfo)
