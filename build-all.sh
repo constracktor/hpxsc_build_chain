@@ -147,6 +147,9 @@ fi
 ################################################################################
 # Dependencies
 ################################################################################
+echo "Building hwloc"
+./build-hwloc.sh
+
 if [[ ${HPX_WITH_PARCEL} == ON  ]]; then   
     echo "Building Openmpi"
     ./build-openmpi.sh
@@ -173,9 +176,6 @@ fi
 
 echo "Building Boost"
 ./build-boost.sh
-
-echo "Building hwloc"
-./build-hwloc.sh
 
 echo "Building jemalloc"
 ./build-jemalloc.sh

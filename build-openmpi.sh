@@ -23,11 +23,12 @@ fi
 
 (
     unset HWLOC_VERSION
+    unset PMIX_VERSION
 
     mkdir -p ${DIR_BUILD}
     cd ${DIR_BUILD}
 
-    ${DIR_SRC}/configure --prefix=${DIR_INSTALL} --disable-mpi-fortran
+    ${DIR_SRC}/configure --prefix=${DIR_INSTALL} --disable-mpi-fortran --with-hwloc=${INSTALL_ROOT}/hwloc #--with-libevent=internal
     make -j${PARALLEL_BUILD}
     make install
 )
