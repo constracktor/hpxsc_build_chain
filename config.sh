@@ -10,14 +10,16 @@ export SOURCE_ROOT=${HPXSC_ROOT}/../src
 export CMAKE_VERSION=3.28.0
 
 # GCC
-#export GCC_VERSION=10.3.0
+export GCC_VERSION=13.2.0
 # specific version of system GCC
-export CC_VERSION=-12
+#export CC_VERSION=-10
+export CC_VERSION=13.2.0
 
 # clang
-#export CLANG_VERSION=release/12.x
+export CLANG_VERSION=release/17.x
 # specific version of system clang
-export CC_CLANG_VERSION=-17
+#export CC_CLANG_VERSION=-12
+export CC_CLANG_VERSION=17.0.1
 
 # OpenMPI
 export OPENMPI_VERSION=4.1.6
