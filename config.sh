@@ -7,7 +7,7 @@ export SOURCE_ROOT=${HPXSC_ROOT}/../src
 # Package Configuration
 ################################################################################
 # CMake
-export CMAKE_VERSION=3.28.0
+export CMAKE_VERSION=3.27.0
 
 # GCC
 export GCC_VERSION=13.2.0
