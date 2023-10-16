@@ -1,5 +1,8 @@
-export CC=gcc${CC_VERSION}
-export CXX=g++${CC_VERSION}
+#export CC=gcc${CC_VERSION}
+#export CXX=g++${CC_VERSION}
+export CC=/opt/apps/gcc/${CC_VERSION}/bin/gcc
+export CXX=/opt/apps/gcc/${CC_VERSION}/bin/g++
+
 if [ -z "$HPX_USE_CC_COMPILER" ]
 then
     export CC=${INSTALL_ROOT}/gcc/bin/gcc
