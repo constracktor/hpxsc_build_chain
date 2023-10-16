@@ -1,6 +1,10 @@
-export CC=clang${CC_CLANG_VERSION}
-export CXX=clang++${CC_CLANG_VERSION}
-export NVCC_WRAPPER_DEFAULT_COMPILER=clang${CC_CLANG_VERSION}
+#export CC=clang${CC_CLANG_VERSION}
+#export CXX=clang++${CC_CLANG_VERSION}
+#export NVCC_WRAPPER_DEFAULT_COMPILER=clang${CC_CLANG_VERSION}
+export CC=/opt/apps/llvm/${CC_CLANG_VERSION}/bin/clang
+export CXX=/opt/apps/llvm/${CC_CLANG_VERSION}/bin/clang++
+export NVCC_WRAPPER_DEFAULT_COMPILER=/opt/apps/llvm/${CC_CLANG_VERSION}/bin/clang
+
 if [ -z "${HPX_USE_CC_COMPILER}" ]
 then
     export CC=${INSTALL_ROOT}/clang/clang/bin/clang
