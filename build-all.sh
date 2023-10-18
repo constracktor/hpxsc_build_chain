@@ -9,7 +9,8 @@ print_usage_abort ()
 SYNOPSIS
     ${0} {Release|RelWithDebInfo|Debug}
     {with-gcc|with-clang|with-CC|with-CC-clang}
-    {with-mkl|without-mkl}
+    {with-mkl|without-blas}
+    {with-fftw|without-fft}
     {with-cuda|with-kokkos|without-gpu}
     {with-mpi|without-parcel}
 DESCRIPTION
@@ -37,27 +38,39 @@ else
 fi
 
 # Determine BLAS backend
-if [[ "$3" == "without-mkl" ]]; then
+if [[ "$3" == "without-blas" ]]; then
     export HPX_WITH_MKL=OFF
-    echo "MKL Backend: Disabled - use uBLAS"
+    echo "BLAS Backend: Disabled"
 elif [[ "$3" == "with-mkl" ]]; then
     export HPX_WITH_MKL=ON
     echo "MKL Backend: Enabled"
 else
-    echo 'BLAS backend must be specified and has to be "with-mkl" or "without-mkl"' >&2
+    echo 'BLAS backend must be specified and has to be "with-mkl" or "without-blas"' >&2
+    print_usage_abort
+fi
+
+# Determine BLAS backend
+if [[ "$4" == "without-fft" ]]; then
+    export HPX_WITH_FFTW=OFF
+    echo "FFT Backend: Disabled"
+elif [[ "$4" == "with-fftw" ]]; then
+    export HPX_WITH_FFTW=ON
+    echo "FFTW Backend: Enabled"
+else
+    echo 'FFT backend must be specified and has to be "with-fftw" or "without-fft"' >&2
     print_usage_abort
 fi
 
 # Determine GPU support 
-if [[ "$4" == "without-gpu" ]]; then
+if [[ "$5" == "without-gpu" ]]; then
     export HPX_WITH_CUDA=OFF
     export HPX_WITH_KOKKOS=OFF
     echo "GPU Support: Disabled"
-elif [[ "$4" == "with-cuda" ]]; then
+elif [[ "$5" == "with-cuda" ]]; then
     export HPX_WITH_CUDA=ON
     export HPX_WITH_KOKKOS=OFF
     echo "GPU Support: CUDA Enabled"
-elif [[ "$4" == "with-kokkos" ]]; then
+elif [[ "$5" == "with-kokkos" ]]; then
     export HPX_WITH_CUDA=ON
     export HPX_WITH_KOKKOS=ON
     echo "GPU Support: Kokkos Enabled"
@@ -66,17 +79,17 @@ else
     print_usage_abort
 fi
 
-if [[ "$5" == "without-parcel" ]]; then
+if [[ "$6" == "without-parcel" ]]; then
     export HPX_WITH_PARCEL=OFF
     echo "Distributed Support: Parcelport Disabled"
-elif [[ "$5" == "with-mpi" ]]; then
+elif [[ "$6" == "with-mpi" ]]; then
     export HPX_WITH_PARCEL=ON
     echo "Distributed Support: Parcelport Enabled"
 else
     echo 'Distributed support must be specified and has to be "with-mpi" or "without-parcel"' >&2
     print_usage_abort
 fi
-
+    {with-mkl|without-mkl}
 # Determine compiler
 if [[ "$2" == "with-gcc" ]]; then
     export HPX_USE_CC_COMPILER=OFF
@@ -163,6 +176,11 @@ fi
 if [[ "${HPX_WITH_MKL}" == "ON" ]]; then
     echo "Building MKL"
     ./build-mkl.sh
+fi
+
+if [[ "${HPX_WITH_FFTW}" == "ON" ]]; then
+    echo "Building FFTW"
+    ./build-fftw.sh
 fi
 
 if [[ "${HPX_WITH_CUDA}" == "ON" ]]; then

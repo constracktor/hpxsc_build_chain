@@ -27,6 +27,9 @@ export OPENMPI_VERSION=4.1.6
 # MKL version 
 export MKL_VERSION=2023.0.0
 
+# FFTW version 
+export FFTW_VERSION=3.3.10
+
 # Boost
 export BOOST_VERSION=1.83.0
 export BOOST_ROOT=${INSTALL_ROOT}/boost
