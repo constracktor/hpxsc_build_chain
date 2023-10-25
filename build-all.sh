@@ -89,7 +89,7 @@ else
     echo 'Distributed support must be specified and has to be "with-mpi" or "without-parcel"' >&2
     print_usage_abort
 fi
-    {with-mkl|without-mkl}
+
 # Determine compiler
 if [[ "$2" == "with-gcc" ]]; then
     export HPX_USE_CC_COMPILER=OFF
