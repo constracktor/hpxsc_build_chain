@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} ${GCC_VERSION:?} ${HWLOC_VERSION:?}
+: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} ${HWLOC_VERSION:?}
 
 DIR_SRC=${SOURCE_ROOT}/hwloc
 DIR_BUILD=${INSTALL_ROOT}/hwloc/build
