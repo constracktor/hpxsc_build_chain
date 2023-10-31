@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} ${GCC_VERSION:?} \
+: ${SOURCE_ROOT:?} ${INSTALL_ROOT:?} \
     ${BOOST_VERSION:?} ${BOOST_BUILD_TYPE:?} ${HPXSC_ROOT:?} \
     ${HPX_WITH_CLANG:?}
 
