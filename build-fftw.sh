@@ -19,8 +19,8 @@ fi
 (
     cd ${DIR_SRC}
     #../src
-    ./configure --prefix=${DIR_INSTALL} 
+    #./configure --prefix=${DIR_INSTALL} --enable-mpi --enable-openmp 
+    ${CMAKE_COMMAND} . -DCMAKE_INSTALL_PREFIX=${DIR_INSTALL}
     make
     make install
-    #--enable-mpi --enable-openmp
 )
